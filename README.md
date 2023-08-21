@@ -325,14 +325,14 @@ Untuk informasi lebih lanjut mengenai penggunaan `awk`, cek link berikut [link](
 
 
 ### b. `cut`
-Remove sections from each line of files
+Hapus bagian tertentu dari baris teks tertentu
 
 *example.txt*
 ```bash
 red riding hood went to the park to play
 ```
 
-*show me columns 2 , 7 , and 9 with a space as a separator*
+*tunjukkan kolom 2 , 7 , dan 9 dengan spasi sebagai pemisah*
 ```bash
 cut -d " " -f2,7,9 example.txt
 ```
@@ -341,9 +341,9 @@ riding park play
 ```
 
 ### c. `echo`
-Display a line of text
+Menampilkan setiap baris dalam teks
 
-*display "Hello World"*
+*tampilkan "Hello World"*
 ```bash
 echo Hello World
 ```
@@ -351,7 +351,7 @@ echo Hello World
 Hello World
 ```
 
-*display "Hello World" with newlines between words*
+*tampilkan "Hello World" dengan baris baru di antara kata-kata (enter)*
 ```bash
 echo -ne "Hello\nWorld\n"
 ```
@@ -361,7 +361,7 @@ World
 ```
 
 ### d. `egrep`
-Print lines matching a pattern - Extended Expression (alias for: 'grep -E')
+Mencetak baris dengan pola yang diinginkan  - Extended Expression (alias for: 'grep -E')
 
 *example.txt*
 ```bash
@@ -386,7 +386,7 @@ ipsum dolor sit
 amet.
 ```
 
-*display lines that have either "Lorem" or "dolor" in them.*
+*tampilkan baris yang memiliki "Lorem" or "dolor" di dalamnya.*
 ```bash
 egrep '(Lorem|dolor)' example.txt
 or
@@ -402,7 +402,7 @@ ipsum dolor sit
 ```
 
 ### e. `fgrep`
-Print lines matching a pattern - FIXED pattern matching  (alias for: 'grep -F')
+Mencetak baris yang cocok dengan pola - FIXED pattern matching  (alias for: 'grep -F')
 
 *example.txt*
 ```bash
