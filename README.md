@@ -3,7 +3,8 @@
 </p>
 
 ## Daftar Isi
-  1. [Operasi Dasar](#1-operasi-dasar)
+
+  1. [Basic Operations](#1-basic-operations)
     1.1. [Operasi File](#11-operasi-file)
     1.2. [Operasi Teks](#12-operasi-teks)
     1.3. [Operasi Direktori](#13-operasi-direktori)
@@ -24,11 +25,15 @@
 # 1. Operasi Dasar
 
 ### a. `export`
+
 Menampilkan semua variabel environment. Jika Kamu ingin mendapatkan detail dari variabel tertentu, gunakan `echo $VARIABLE_NAME`.
+
 ```bash
 export
 ```
+
 Contoh:
+
 ```bash
 $ export
 AWS_HOME=/Users/adnanadnan/.aws
@@ -41,42 +46,56 @@ $ echo $AWS_HOME
 ```
 
 ### b. `whatis`
+
 whatis menampilkan deskripsi dari perintah yang diinputkan user atau pengguna, system calls, library functions, dan lainnya pada terminal.
+
 ```bash
 whatis something
 ```
+
 Example:
+
 ```bash
 $ whatis bash
 bash (1)             - GNU Bourne-Again SHell
 ```
 
 ### c. `whereis`
+
 whereis digunakan untuk mencari executable file, source filesnya, dan ditampilkan di terminal menggunakan database yang dibuat oleh sistem secara otomatis.
+
 ```bash
 whereis name
 ```
+
 Example:
+
 ```bash
 $ whereis php
 /usr/bin/php
 ```
 
 ### d. `which`
+
 which digunakan untuk mencari executable file yang ada di direktori tertentu yang sudah ditentukan sebelumnya oleh PATH environment variable. Perintah ini akan menampilkan `PATH` dari executable file yang ingin kamu cari.
+
 ```bash
 which program_name
 ```
+
 Example:
+
 ```bash
 $ which php
 /c/xampp/php/php
 ```
 
 ### e. clear
+
 Menghapus isi dari console atau terminal.
 
 ## 1.1. Operasi File
+
 <table>
    <tr>
       <td><a href="#a-cat">cat</a></td>
@@ -105,11 +124,14 @@ Menghapus isi dari console atau terminal.
 </table>
 
 ### a. `cat`
+
 Perintah ini dapat digunakan atau dijalankan pada LINUX dan UNIX dengan tujuan sebagai berikut.
+
 * Menampilkan isi dari suatu file dalam bentuk teks pada layar atau terminal.
 * menyalin isi dari suatu file teks
 * menggabungkan beberapa file teks
 * membuat sebuah file teks baru
+
 ```bash
 cat filename
 cat file1 file2
@@ -118,81 +140,111 @@ cat < file1 > file2 #copy file1 to file2 file1 > file2 #copy file1 to file2
 ```
 
 ### b. `chmod`
+
 Perintah atau command chmod adalah singkatan dari "change mode" yang memungkinkan Kita untuk mengubah izin `read`, `write`, dan `execute` pada file dan folder. Untuk informasi lebih lanjut tentang perintah ini, kunjungi tautan berikut [Link](https://ss64.com/bash/chmod.html).
+
 ```bash
 chmod -options filename
 ```
 
 ### c. `chown`
+
 Perintah chown yang merupakan singkatan dari "change owner", memungkinkan Kita untuk mengubah pemilik atau owner dari file atau folder, yang mana dapat berupa user atau group. Kombinasi penggunaannya yaitu user (owner), kemudian groupnya, yang dipisahkan oleh titik dua `(:)`.
+
 ```bash
 chown -options user:group filename
 ```
 
 ### d. `cp`
+
 Menyalin file, baik di lokasi yang sama atau berbeda.
+
 ```bash
 cp filename1 filename2
 ```
+
 Dimana `filename1` adalah file sumbernya dan `filename2` adalah file destinasinya.
 
 ### e. `diff`
+
 Membandingkan 2 file, dan menampilkan perbedaan isi dari 2 file tersebut.
+
 ```bash
 diff filename1 filename2
 ```
 
 ### f. `file`
+
 Menentukan jenis atau tipe dari suatu file.
+
 ```bash
 file filename
 ```
+
 Example:
+
 ```bash
 $ file index.html
  index.html: HTML document, ASCII text
 ```
+
 ### g. `find`
+
 Menemukan suatu file dalam direktori tertentu.
+
 ```bash
 find directory options pattern
 ```
+
 Example:
+
 ```bash
-$ find . -name README.md
-$ find /home/user1 -name '*.png'
+find . -name README.md
+find /home/user1 -name '*.png'
 ```
 
 ### h. `gunzip`
+
 Membuka atau mengekstrak file yang dikompres oleh gzip.
+
 ```bash
 gunzip filename
 ```
 
 ### i. `gzcat`
+
 Dengan perintah ini Kamu dapat melihat isi dari file `gzip` tanpa diekstrak terlebih dahulu.
+
 ```bash
 gzcat filename
 ```
 
 ### j. `gzip`
+
 Mengkompres files.
+
 ```bash
 gzip filename
 ```
 
 ### k. `head`
+
 Menampilkan 10 baris pertama dari file.
+
 ```bash
 head filename
 ```
 
 ### l. `lpq`
+
 Menampilkan job pada antrian printer.
+
 ```bash
 lpq
 ```
+
 Example:
+
 ```bash
 $ lpq
 Rank    Owner   Job     File(s)                         Total Size
@@ -201,22 +253,29 @@ active  adnanad 59      demo                            399360 bytes
 ```
 
 ### m. `lpr`
+
 Cetak isi dari file.
+
 ```bash
 lpr filename
 ```
 
 ### n. `lprm`
+
 Mengahapus job pada antrian printer.
+
 ```bash
 lprm jobnumber
 ```
 
 ### o. `ls`
+
 Menampilkan list atau daftar file dalam direktori. `ls` memiliki banyak opsi: `-l` mencantumkan file dalam 'format panjang', yang berisi ukuran dari file, siapa pemilik atau owner file, siapa yang berhak untuk mengakses file, dan kapan terakhir kali file tersebut dimodifikasi. `-a` menampilakan daftar file, termasuk file yang tersembunyi. Kunjungi link berikut untuk informasi lebih lanjut [link](https://ss64.com/bash/ls.html).
+
 ```bash
 ls option
 ```
+
 Example:
 <pre>
 $ ls -la
@@ -231,45 +290,59 @@ drwxr-xr-x  17 adnan  staff     578 Mar 27 23:36 .git
 </pre>
 
 ### p. `more`
+
 Menampilkan isi dari file (gunakan space untuk menampilkan lebih banyak isi dari file dan untuk keluar gunakan q).
+
 ```bash
 more filename
 ```
 
 ### q. `mv`
+
 Memindahkan file secara permanen ke lokasi yang berbeda.
+
 ```bash
 mv filename1 filename2
 ```
+
 Yang mana `filename1` adalah file sumbernya `filename2` adalah destinasinya.
 
 Juga digunakan untuk mengganti nama atau rename file.
+
 ```bash
 mv old_name new_name
 ```
 
 ### r. `rm`
+
 Digunakan untuk menghapus file. Akan error jika command ini digunakan untuk menghapus direktori.
 `rm: directory: is a directory`
 Untuk menghapus direktori cukup tambahkan argumen `-r` sehingga akan menghapus isi direktori secara rekursif. Opsi lainnya yaitu jika ingin  mengahapus file atau direktori tanpa konfirmasi terlebih dahulu gunakan argumen `-f`.
+
 ```bash
 rm filename
 ```
 
 ### s. `tail`
+
 Menampilkan 10 baris terakhir file. Gunakan `-f` ketika ingin melihat perubahan baru dari isi file.
+
 ```bash
 tail filename
 ```
 
 ### t. `touch`
+
 Memperbarui akses dan time stamps dari file. Kita juga bisa memanfaatkan touch untuk membuat file baru.
+
 ```bash
 touch filename
 ```
+
 Example:
+
 ```bash
-$ touch trick.md
+touch trick.md
 ```
 
 ## 1.2. Operasi Teks
@@ -295,6 +368,7 @@ $ touch trick.md
 </table>
 
 ### a. `awk`
+
 awk adalah perintah yang sangat berguna dalam menangani file teks. Beroperasi pada file baris per baris. Secara default menggunakan spasi untuk  memisahkan bidang-bidangnya. Berikut ini sintaks-sintaks yang umum digunakan
 
 ```bash
@@ -302,6 +376,7 @@ awk '/search_pattern/ { action_to_take_if_pattern_matches; }' file_to_parse
 ```
 
 Mari kita ambil contoh dari file berikut `/etc/passwd`. Berikut data ada:
+
 ```
 root:x:0:0:root:/root:/usr/bin/zsh
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
@@ -309,11 +384,15 @@ bin:x:2:2:bin:/bin:/usr/sbin/nologin
 sys:x:3:3:sys:/dev:/usr/sbin/nologin
 sync:x:4:65534:sync:/bin:/bin/sync
 ```
+
 Sekarang coba kita dapatkan usernamenya saja dari file tadi. Dimana `-F` menentukan basis mana yang dipisahkan. dalam kasus ini `:`. `{ print $1 }`artinya mencetak bidang pertama yang cocok.
+
 ```bash
 awk -F':' '{ print $1 }' /etc/passwd
 ```
+
 Setelah menjalankan perintah tersebut dalam menghasilkan output atau keluaran seperti berikut.
+
 ```
 root
 daemon
@@ -321,49 +400,60 @@ bin
 sys
 sync
 ```
+
 Untuk informasi lebih lanjut mengenai penggunaan `awk`, cek link berikut [link](https://www.cyberciti.biz/faq/bash-scripting-using-awk).
 
-
 ### b. `cut`
+
 Hapus bagian tertentu dari baris teks tertentu
 
 *example.txt*
+
 ```bash
 red riding hood went to the park to play
 ```
 
 *tunjukkan kolom 2 , 7 , dan 9 dengan spasi sebagai pemisah*
+
 ```bash
 cut -d " " -f2,7,9 example.txt
 ```
+
 ```bash
 riding park play
 ```
 
 ### c. `echo`
+
 Menampilkan setiap baris dalam teks
 
 *tampilkan "Hello World"*
+
 ```bash
 echo Hello World
 ```
+
 ```bash
 Hello World
 ```
 
 *tampilkan "Hello World" dengan baris baru di antara kata-kata (enter)*
+
 ```bash
 echo -ne "Hello\nWorld\n"
 ```
+
 ```bash
 Hello
 World
 ```
 
 ### d. `egrep`
+
 Mencetak baris dengan pola yang diinginkan  - Extended Expression (alias for: 'grep -E')
 
 *example.txt*
+
 ```bash
 Lorem ipsum
 dolor sit amet,
@@ -387,11 +477,13 @@ amet.
 ```
 
 *tampilkan baris yang memiliki "Lorem" or "dolor" di dalamnya.*
+
 ```bash
 egrep '(Lorem|dolor)' example.txt
 or
 grep -E '(Lorem|dolor)' example.txt
 ```
+
 ```bash
 Lorem ipsum
 dolor sit amet,
@@ -402,9 +494,11 @@ ipsum dolor sit
 ```
 
 ### e. `fgrep`
+
 Mencetak baris yang cocok dengan pola - FIXED pattern matching  (alias for: 'grep -F')
 
 *example.txt*
+
 ```bash
 Lorem ipsum
 dolor sit amet,
@@ -429,27 +523,33 @@ amet.
 ```
 
 *Find the exact string '(Lorem|dolor)' in example.txt*
+
 ```bash
 fgrep '(Lorem|dolor)' example.txt
 or
 grep -F '(Lorem|dolor)' example.txt
 ```
+
 ```bash
 foo (Lorem|dolor)
 ```
 
 ### f. `fmt`
+
 Simple optimal text formatter
 
 *example: example.txt (1 line)*
+
 ```bash
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 ```
 
 *output the lines of example.txt to 20 character width*
+
 ```bash
 cat example.txt | fmt -w 20
 ```
+
 ```bash
 Lorem ipsum
 dolor sit amet,
@@ -473,27 +573,36 @@ amet.
 ```
 
 ### g. `grep`
+
 Looks for text inside files. You can use grep to search for lines of text that match one or many regular expressions, and outputs only the matching lines.
+
 ```bash
 grep pattern filename
 ```
+
 Example:
+
 ```bash
 $ grep admin /etc/passwd
 _kadmin_admin:*:218:-2:Kerberos Admin Service:/var/empty:/usr/bin/false
 _kadmin_changepw:*:219:-2:Kerberos Change Password Service:/var/empty:/usr/bin/false
 _krb_kadmin:*:231:-2:Open Directory Kerberos Admin Service:/var/empty:/usr/bin/false
 ```
+
 You can also force grep to ignore word case by using `-i` option. `-r` can be used to search all files under the specified directory, for example:
+
 ```bash
-$ grep -r admin /etc/
+grep -r admin /etc/
 ```
+
 And `-w` to search for words only. For more detail on `grep`, check following [link](https://www.cyberciti.biz/faq/grep-in-bash).
 
 ### h. `nl`
+
 Number lines of files
 
 *example.txt*
+
 ```bash
 Lorem ipsum
 dolor sit amet,
@@ -517,9 +626,11 @@ amet.
 ```
 
 *show example.txt with line numbers*
+
 ```bash
 nl -s". " example.txt
 ```
+
 ```bash
      1. Lorem ipsum
      2. dolor sit amet,
@@ -543,33 +654,41 @@ nl -s". " example.txt
 ```
 
 ### i. `sed`
+
 Stream editor for filtering and transforming text
 
 *example.txt*
+
 ```bash
 Hello This is a Test 1 2 3 4
 ```
 
 *replace all spaces with hyphens*
+
 ```bash
 sed 's/ /-/g' example.txt
 ```
+
 ```bash
 Hello-This-is-a-Test-1-2-3-4
 ```
 
 *replace all digits with "d"*
+
 ```bash
 sed 's/[0-9]/d/g' example.txt
 ```
+
 ```bash
 Hello This is a Test d d d d
 ```
 
 ### j. `sort`
+
 Sort lines of text files
 
 *example.txt*
+
 ```bash
 f
 b
@@ -581,9 +700,11 @@ d
 ```
 
 *sort example.txt*
+
 ```bash
 sort example.txt
 ```
+
 ```bash
 a
 b
@@ -595,9 +716,11 @@ g
 ```
 
 *randomize a sorted example.txt*
+
 ```bash
 sort example.txt | sort -R
 ```
+
 ```bash
 b
 f
@@ -609,25 +732,31 @@ e
 ```
 
 ### k. `tr`
+
 Translate or delete characters
 
 *example.txt*
+
 ```bash
 Hello World Foo Bar Baz!
 ```
 
 *take all lower case letters and make them upper case*
+
 ```bash
 cat example.txt | tr 'a-z' 'A-Z'
 ```
+
 ```bash
 HELLO WORLD FOO BAR BAZ!
 ```
 
 *take all spaces and make them into newlines*
+
 ```bash
 cat example.txt | tr ' ' '\n'
 ```
+
 ```bash
 Hello
 World
@@ -637,9 +766,11 @@ Baz!
 ```
 
 ### l. `uniq`
+
 Report or omit repeated lines
 
 *example.txt*
+
 ```bash
 a
 a
@@ -652,9 +783,11 @@ c
 ```
 
 *show only unique lines of example.txt (first you need to sort it, otherwise it won't see the overlap)*
+
 ```bash
 sort example.txt | uniq
 ```
+
 ```bash
 a
 b
@@ -663,9 +796,11 @@ d
 ```
 
 *show the unique items for each line, and tell me how many instances it found*
+
 ```bash
 sort example.txt | uniq -c
 ```
+
 ```bash
     3 a
     2 b
@@ -674,15 +809,20 @@ sort example.txt | uniq -c
 ```
 
 ### m. `wc`
+
 Tells you how many lines, words and characters there are in a file.
+
 ```bash
 wc filename
 ```
+
 Example:
+
 ```bash
 $ wc demo.txt
 7459   15915  398400 demo.txt
 ```
+
 Where `7459` is lines, `15915` is words and `398400` is characters.
 
 ## 1.3. Directory Operations
@@ -696,34 +836,47 @@ Where `7459` is lines, `15915` is words and `398400` is characters.
 </table>
 
 ### a. `cd`
+
 Moves you from one directory to other. Running this
+
 ```bash
-$ cd
+cd
 ```
+
 moves you to home directory. This command accepts an optional `dirname`, which moves you to that directory.
+
 ```bash
 cd dirname
 ```
 
 ### b. `mkdir`
+
 Makes a new directory.
+
 ```bash
 mkdir dirname
 ```
+
 You can use this to create multiple directories at once within your current directory.
+
 ```bash
 mkdir 1stDirectory 2ndDirectory 3rdDirectory
 ```
+
 You can also use this to create parent directories at the same time with the -p (or --parents) flag. For instance, if you wanted a directory named 'project1' in another subdirectory at '/samples/bash/projects/', you could run:
+
 ```bash
 mkdir -p /samples/bash/projects/project1
 mkdir --parents /samples/bash/projects/project1
 ```
+
 Both commands above will do the same thing.
 If any of these directories did no already exist, they would be created as well.
 
 ### c. `pwd`
+
 Tells you which directory you currently are in.
+
 ```bash
 pwd
 ```
@@ -766,155 +919,208 @@ pwd
 </table>
 
 ### a. `bg`
+
 Lists stopped or background jobs; resume a stopped job in the background.
 
 ### b. `cal`
+
 Shows the month's calendar.
 
 ### c. `date`
+
 Shows the current date and time.
 
 ### d. `df`
+
 Shows disk usage.
 
 ### e. `dig`
+
 Gets DNS information for domain.
+
 ```bash
 dig domain
 ```
 
 ### f. `du`
+
 Shows the disk usage of files or directories. For more information on this command check this [link](http://www.linfo.org/du.html)
+
 ```bash
 du [option] [filename|directory]
 ```
+
 Options:
-- `-h` (human readable) Displays output it in kilobytes (K), megabytes (M) and gigabytes (G).
-- `-s` (supress or summarize) Outputs total disk space of a directory and supresses reports for subdirectories.
+* `-h` (human readable) Displays output it in kilobytes (K), megabytes (M) and gigabytes (G).
+* `-s` (supress or summarize) Outputs total disk space of a directory and supresses reports for subdirectories.
 
 Example:
+
 ```bash
 du -sh pictures
 1.4M pictures
 ```
 
 ### g. `fg`
+
 Brings the most recent job in the foreground.
 
 ### h. `finger`
+
 Displays information about user.
+
 ```bash
 finger username
 ```
+
 ### i. `jobs`
+
 Lists the jobs running in the background, giving the job number.
 
 ### j. `last`
+
 Lists your last logins of specified user.
+
 ```bash
 last yourUsername
 ```
 
 ### k. `man`
+
 Shows the manual for specified command.
+
 ```bash
 man command
 ```
 
 ### l. `passwd`
+
 Allows the current logged user to change their password.
 
 ### m. `ping`
+
 Pings host and outputs results.
+
 ```bash
 ping host
 ```
 
 ### n. `ps`
+
 Lists your processes.
+
 ```bash
 ps -u yourusername
 ```
+
 Use the flags ef. e for every process and f for full listing.
+
 ```bash
 ps -ef
 ```
 
 ### o. `quota`
+
 Shows what your disk quota is.
+
 ```bash
 quota -v
 ```
 
 ### p. `scp`
+
 Transfer files between a local host and a remote host or between two remote hosts.
 
 *copy from local host to remote host*
+
 ```bash
 scp source_file user@host:directory/target_file
 ```
+
 *copy from remote host to local host*
+
 ```bash
 scp user@host:directory/source_file target_file
 scp -r user@host:directory/source_folder target_folder
 ```
+
 This command also accepts an option `-P` that can be used to connect to specific port.
+
 ```bash
 scp -P port user@host:directory/source_file target_file
 ```
 
 ### q. `ssh`
+
 ssh (SSH client) is a program for logging into and executing commands on a remote machine.
+
 ```bash
 ssh user@host
 ```
+
 This command also accepts an option `-p` that can be used to connect to specific port.
+
 ```bash
 ssh -p port user@host
 ```
 
 ### r. `top`
+
 Displays your currently active processes.
 
 ### s. `uname`
+
 Shows kernel information.
+
 ```bash
 uname -a
 ```
 
 ### t. `uptime`
+
 Shows current uptime.
 
 ### u. `w`
+
 Displays who is online.
 
 ### v. `wget`
+
 Downloads file.
+
 ```bash
 wget file
 ```
 
 ### w. `whoami`
+
 Return current logged in username.
 
 ### x. `whois`
+
 Gets whois information for domain.
+
 ```bash
 whois domain
 ```
 
 ### y. `rsync`
+
 Does the same job as `scp` command, but transfers only changed files. Useful when transferring the same folder to/from server multiple times.
+
 ```bash
 rsync source_folder user@host:target_folder
 rsync user@host:target_folder target_folder
 ```
 
 ### z. `curl`
+
 Curl is a command-line tool for requesting or sending data using URL syntax. Usefull on systems where you only have terminal available for making various requests.
+
 ```bash
 curl url
 ```
+
 Use  `-X` or `--request` to specify which method you would like invoke (GET, POST, DELETE, ...).
 Use `-d <data>` or `--data <data>` to POST data on given URL.
 
@@ -930,35 +1136,44 @@ Use `-d <data>` or `--data <data>` to POST data on given URL.
 </table>
 
 ### a. `kill`
+
 Kills (ends) the processes with the ID you gave.
+
 ```bash
 kill PID
 ```
 
 ### b. `killall`
+
 Kill all processes with the name.
+
 ```bash
 killall processname
 ```
 
 ### c. &
+
 The `&` symbol instructs the command to run as a background process in a subshell.
+
 ```bash
 command &
 ```
 
 ### d. `nohup`
+
 nohup stands for "No Hang Up". This allows to run command/process or shell script that can continue running in the background after you log out from a shell.
+
 ```bash
 nohup command
 ```
+
 Combine it with `&` to create background processes
+
 ```bash
 nohup command &
 ```
 
 # 2. Basic Shell Programming
-
 
 The first line that you will write in bash script files is called `shebang`. This line in any script determines the script's ability to be executed like a standalone executable without typing sh, bash, python, php etc beforehand in the terminal.
 
@@ -971,6 +1186,7 @@ The first line that you will write in bash script files is called `shebang`. Thi
 Creating variables in bash is similar to other languages. There are no data types. A variable in bash can contain a number, a character, a string of characters, etc. You have no need to declare a variable, just assigning a value to its reference will create it.
 
 Example:
+
 ```bash
 str="hello world"
 ```
@@ -978,13 +1194,17 @@ str="hello world"
 The above line creates a variable `str` and assigns "hello world" to it. The value of variable is retrieved by putting the `$` in the beginning of variable name.
 
 Example:
+
 ```bash
 echo $str   # hello world
 ```
+
 ## 2.2. Array
+
 Like other languages bash has also arrays. An array is a variable containing multiple values. There's no maximum limit on the size of array. Arrays in bash are zero based. The first element is indexed with element 0. There are several ways for creating arrays in bash which are given below.
 
 Examples:
+
 ```bash
 array[0]=val
 array[1]=val
@@ -992,6 +1212,7 @@ array[2]=val
 array=([2]=val [0]=val [1]=val)
 array=(val val val)
 ```
+
 To display a value at specific index use following syntax:
 
 ```bash
@@ -1040,6 +1261,7 @@ ${variable:2:8}  #this returns a substring of a string, starting at the characte
 ```
 
 Here are some handy pattern matching tricks
+
 ```bash
 if [[ "$variable" == *subString* ]]  #this returns true if the provided substring is in the variable
 if [[ "$variable" != *subString* ]]  #this returns true if the provided substring is not in the variable
@@ -1047,24 +1269,25 @@ if [[ "$variable" == subString* ]]   #this returns true if the variable starts w
 if [[ "$variable" == *subString ]]   #this returns true if the variable ends with the given subString
 ```
 
-
 The above can be shortened using a case statement and the IN keyword
+
 ```bash
 case "$var" in
-	begin*)
-		#variable begins with "begin"
-	;;
-	*subString*)
-		#subString is in variable
-	;;
+ begin*)
+  #variable begins with "begin"
+ ;;
+ *subString*)
+  #subString is in variable
+ ;;
 
-	*otherSubString*)
-		#otherSubString is in variable
-	;;
+ *otherSubString*)
+  #otherSubString is in variable
+ ;;
 esac
 ```
 
 ## 2.5. Functions
+
 As in almost any programming language, you can use functions to group pieces of code in a more logical way or practice the divine art of recursion. Declaring a function is just a matter of writing function my_func { my_code }. Calling a function is just like calling another program, you just write its name.
 
 ```bash
@@ -1074,6 +1297,7 @@ function name() {
 ```
 
 Example:
+
 ```bash
 #!/bin/bash
 function hello {
@@ -1154,6 +1378,7 @@ file1 -ot file2     # file1 is older than file2
 There are three types of loops in bash. `for`, `while` and `until`.
 
 Different `for` Syntax:
+
 ```bash
 for x := 1 to 10 do
 begin
@@ -1172,6 +1397,7 @@ done
 ```
 
 `while` Syntax:
+
 ```bash
 while condition; do
   statements
@@ -1179,6 +1405,7 @@ done
 ```
 
 `until` Syntax:
+
 ```bash
 until condition; do
   statements
@@ -1214,13 +1441,17 @@ cd $hotellogs
 
 This goes back to the days before you could rely on keyboards to have an "up" arrow key, but can still be useful.
 To run the last command in your history
+
 ```bash
 !!
 ```
+
 A common error is to forget to use `sudo` to prefix a command requiring privileged execution. Instead of typing the whole command again, you can:
+
 ```bash
 sudo !!
 ```
+
 This would change a `mkdir somedir` into `sudo mkdir somedir`.
 
 ## Exit traps
@@ -1238,6 +1469,7 @@ trap finish EXIT
 ## Saving your environment variables
 
 When you do `export FOO = BAR`, your variable is only exported in this current shell and all its children, to persist in the future you can simply append in your `~/.bash_profile` file the command to export your variable
+
 ```bash
 echo export FOO=BAR >> ~/.bash_profile
 ```
@@ -1247,6 +1479,7 @@ echo export FOO=BAR >> ~/.bash_profile
 You can easily access your scripts by creating a bin folder in your home with `mkdir ~/bin`, now all the scripts you put in this folder you can access in any directory.
 
 If you can not access, try append the code below in your `~/.bash_profile` file and after do `source ~/.bash_profile`.
+
 ```bash
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -1255,6 +1488,7 @@ fi
 ```
 
 # 4. Debugging
+
 You can easily debug the bash script by passing different options to `bash` command. For example `-n` will not run commands and check for syntax errors only. `-v` echo commands before running them. `-x` echo commands after command-line processing.
 
 ```bash
@@ -1264,6 +1498,7 @@ bash -x scriptname
 ```
 
 # 5. Multi-threading
+
 You can easily multi-threading your jobs using `&`. All those jobs will then run in the background simultaneously and you can see the processes below are running using `jobs`.
 
 ```bash
@@ -1279,17 +1514,18 @@ wait
 
 ## Contribution
 
-- Report issues [How to](https://help.github.com/articles/creating-an-issue/)
-- Open pull request with improvements [How to](https://help.github.com/articles/about-pull-requests/)
-- Spread the word
+* Report issues [How to](https://help.github.com/articles/creating-an-issue/)
+* Open pull request with improvements [How to](https://help.github.com/articles/about-pull-requests/)
+* Spread the word
 
 ## Translation
+
 - [Chinese | 简体中文](https://github.com/vuuihc/bash-guide)
-- [Turkish | Türkçe](https://github.com/omergulen/bash-guide)
-- [Japanese | 日本語](https://github.com/itooww/bash-guide)
-- [Russian | Русский](https://github.com/navinweb/bash-guide)
-- [Vietnamese | Tiếng Việt](https://github.com/nguyenvanhieuvn/hoc-bash)
-- [Spanish | Español](https://github.com/mariotristan/bash-guide)
+* [Turkish | Türkçe](https://github.com/omergulen/bash-guide)
+* [Japanese | 日本語](https://github.com/itooww/bash-guide)
+* [Russian | Русский](https://github.com/navinweb/bash-guide)
+* [Vietnamese | Tiếng Việt](https://github.com/nguyenvanhieuvn/hoc-bash)
+* [Spanish | Español](https://github.com/mariotristan/bash-guide)
 
 ## License
 
