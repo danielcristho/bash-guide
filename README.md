@@ -19,16 +19,17 @@
     2.7. [Loops](#27-loops)
   3. [Tricks](#3-tricks)
   4. [Debugging](#4-debugging)
-  5. [Multi-threading](#5-multi-threading)
 
-# 1. Basic Operations
+# 1. Operasi Dasar
 
 ### a. `export`
 Displays all environment variables. If you want to get details of a specific variable, use `echo $VARIABLE_NAME`.
 ```bash
 export
 ```
-Example:
+
+Contoh:
+
 ```bash
 $ export
 AWS_HOME=/Users/adnanadnan/.aws
@@ -41,42 +42,56 @@ $ echo $AWS_HOME
 ```
 
 ### b. `whatis`
-whatis shows description for user commands, system calls, library functions, and others in manual pages
+
+whatis menampilkan deskripsi dari perintah yang diinputkan user atau pengguna, system calls, library functions, dan lainnya pada terminal.
+
 ```bash
 whatis something
 ```
+
 Example:
+
 ```bash
 $ whatis bash
 bash (1)             - GNU Bourne-Again SHell
 ```
 
 ### c. `whereis`
-whereis searches for executables, source files, and manual pages using a database built by system automatically.
+
+whereis digunakan untuk mencari executable file, source filesnya, dan ditampilkan di terminal menggunakan database yang dibuat oleh sistem secara otomatis.
+
 ```bash
 whereis name
 ```
+
 Example:
+
 ```bash
 $ whereis php
 /usr/bin/php
 ```
 
 ### d. `which`
-which searches for executables in the directories specified by the environment variable PATH. This command will print the full path of the executable(s).
+
+which digunakan untuk mencari executable file yang ada di direktori tertentu yang sudah ditentukan sebelumnya oleh PATH environment variable. Perintah ini akan menampilkan `PATH` dari executable file yang ingin kamu cari.
+
 ```bash
 which program_name
 ```
+
 Example:
+
 ```bash
 $ which php
 /c/xampp/php/php
 ```
 
 ### e. clear
-Clears content on window.
 
-## 1.1. File Operations
+Menghapus isi dari console atau terminal.
+
+## 1.1. Operasi File
+
 <table>
    <tr>
       <td><a href="#a-cat">cat</a></td>
@@ -114,17 +129,21 @@ It can be used for the following purposes under UNIX or Linux.
 cat filename
 cat file1 file2
 cat file1 file2 > newcombinedfile
-cat < file1 > file2 #copy file1 to file2
+cat < file1 > file2 #copy file1 to file2 file1 > file2 #copy file1 to file2
 ```
 
 ### b. `chmod`
-The chmod command stands for "change mode" and allows you to change the read, write, and execute permissions on your files and folders. For more information on this command check this [link](https://ss64.com/bash/chmod.html).
+
+Perintah atau command chmod adalah singkatan dari "change mode" yang memungkinkan Kita untuk mengubah izin `read`, `write`, dan `execute` pada file dan folder. Untuk informasi lebih lanjut tentang perintah ini, kunjungi tautan berikut [Link](https://ss64.com/bash/chmod.html).
+
 ```bash
 chmod -options filename
 ```
 
 ### c. `chown`
-The chown command stands for "change owner", and allows you to change the owner of a given file or folder, which can be a user and a group. Basic usage is simple forward first comes the user (owner), and then the group, delimited by a colon.
+
+Perintah chown yang merupakan singkatan dari "change owner", memungkinkan Kita untuk mengubah pemilik atau owner dari file atau folder, yang mana dapat berupa user atau group. Kombinasi penggunaannya yaitu user (owner), kemudian groupnya, yang dipisahkan oleh titik dua `(:)`.
+
 ```bash
 chown -options user:group filename
 ```
@@ -134,7 +153,8 @@ Copies a file from one location to other.
 ```bash
 cp filename1 filename2
 ```
-Where `filename1` is the source path to the file and `filename2` is the destination path to the file.
+
+Dimana `filename1` adalah file sumbernya dan `filename2` adalah file destinasinya.
 
 ### e. `diff`
 Compares files, and lists their differences.
@@ -147,20 +167,27 @@ Determine file type.
 ```bash
 file filename
 ```
+
 Example:
+
 ```bash
 $ file index.html
  index.html: HTML document, ASCII text
 ```
+
 ### g. `find`
-Find files in directory
+
+Menemukan suatu file dalam direktori tertentu.
+
 ```bash
 find directory options pattern
 ```
+
 Example:
+
 ```bash
-$ find . -name README.md
-$ find /home/user1 -name '*.png'
+find . -name README.md
+find /home/user1 -name '*.png'
 ```
 
 ### h. `gunzip`
@@ -192,7 +219,9 @@ Check out the printer queue.
 ```bash
 lpq
 ```
+
 Example:
+
 ```bash
 $ lpq
 Rank    Owner   Job     File(s)                         Total Size
@@ -217,6 +246,7 @@ Lists your files. `ls` has many options: `-l` lists files in 'long format', whic
 ```bash
 ls option
 ```
+
 Example:
 <pre>
 $ ls -la
@@ -241,17 +271,21 @@ Moves a file from one location to other.
 ```bash
 mv filename1 filename2
 ```
-Where `filename1` is the source path to the file and `filename2` is the destination path to the file.
 
-Also it can be used for rename a file.
+Yang mana `filename1` adalah file sumbernya `filename2` adalah destinasinya.
+
+Juga digunakan untuk mengganti nama atau rename file.
+
 ```bash
 mv old_name new_name
 ```
 
 ### r. `rm`
-Removes a file. Using this command on a directory gives you an error.
+
+Digunakan untuk menghapus file. Akan error jika command ini digunakan untuk menghapus direktori.
 `rm: directory: is a directory`
-To remove a directory you have to pass `-r` which will remove the content of the directory recursively. Optionally you can use `-f` flag to force the deletion i.e. without any confirmations etc.
+Untuk menghapus direktori cukup tambahkan argumen `-r` sehingga akan menghapus isi direktori secara rekursif. Opsi lainnya yaitu jika ingin  mengahapus file atau direktori tanpa konfirmasi terlebih dahulu gunakan argumen `-f`.
+
 ```bash
 rm filename
 ```
@@ -263,16 +297,20 @@ tail filename
 ```
 
 ### t. `touch`
-Updates access and modification time stamps of your file. If it doesn't exists, it'll be created.
+
+Memperbarui akses dan time stamps dari file. Kita juga bisa memanfaatkan touch untuk membuat file baru.
+
 ```bash
 touch filename
 ```
+
 Example:
+
 ```bash
-$ touch trick.md
+touch trick.md
 ```
 
-## 1.2. Text Operations
+## 1.2. Operasi Teks
 
 <table>
     <tr>
@@ -295,13 +333,15 @@ $ touch trick.md
 </table>
 
 ### a. `awk`
-awk is the most useful command for handling text files. It operates on an entire file line by line. By default it uses whitespace to separate the fields. The most common syntax for awk command is
+
+awk adalah perintah yang sangat berguna dalam menangani file teks. Beroperasi pada file baris per baris. Secara default menggunakan spasi untuk  memisahkan bidang-bidangnya. Berikut ini sintaks-sintaks yang umum digunakan
 
 ```bash
 awk '/search_pattern/ { action_to_take_if_pattern_matches; }' file_to_parse
 ```
 
-Lets take following file `/etc/passwd`. Here's the sample data that this file contains:
+Mari kita ambil contoh dari file berikut `/etc/passwd`. Berikut data ada:
+
 ```
 root:x:0:0:root:/root:/usr/bin/zsh
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
@@ -309,11 +349,15 @@ bin:x:2:2:bin:/bin:/usr/sbin/nologin
 sys:x:3:3:sys:/dev:/usr/sbin/nologin
 sync:x:4:65534:sync:/bin:/bin/sync
 ```
-So now lets get only username from this file. Where `-F` specifies that on which base we are going to separate the fields. In our case it's `:`. `{ print $1 }` means print out the first matching field.
+
+Sekarang coba kita dapatkan usernamenya saja dari file tadi. Dimana `-F` menentukan basis mana yang dipisahkan. dalam kasus ini `:`. `{ print $1 }`artinya mencetak bidang pertama yang cocok.
+
 ```bash
 awk -F':' '{ print $1 }' /etc/passwd
 ```
-After running the above command you will get following output.
+
+Setelah menjalankan perintah tersebut dalam menghasilkan output atau keluaran seperti berikut.
+
 ```
 root
 daemon
@@ -321,49 +365,60 @@ bin
 sys
 sync
 ```
-For more detail on how to use `awk`, check following [link](https://www.cyberciti.biz/faq/bash-scripting-using-awk).
 
+Untuk informasi lebih lanjut mengenai penggunaan `awk`, cek link berikut [link](https://www.cyberciti.biz/faq/bash-scripting-using-awk).
 
 ### b. `cut`
-Remove sections from each line of files
+
+Hapus bagian tertentu dari baris teks tertentu
 
 *example.txt*
+
 ```bash
 red riding hood went to the park to play
 ```
 
-*show me columns 2 , 7 , and 9 with a space as a separator*
+*tunjukkan kolom 2 , 7 , dan 9 dengan spasi sebagai pemisah*
+
 ```bash
 cut -d " " -f2,7,9 example.txt
 ```
+
 ```bash
 riding park play
 ```
 
 ### c. `echo`
-Display a line of text
 
-*display "Hello World"*
+Menampilkan setiap baris dalam teks
+
+*tampilkan "Hello World"*
+
 ```bash
 echo Hello World
 ```
+
 ```bash
 Hello World
 ```
 
-*display "Hello World" with newlines between words*
+*tampilkan "Hello World" dengan baris baru di antara kata-kata (enter)*
+
 ```bash
 echo -ne "Hello\nWorld\n"
 ```
+
 ```bash
 Hello
 World
 ```
 
 ### d. `egrep`
-Print lines matching a pattern - Extended Expression (alias for: 'grep -E')
+
+Mencetak baris dengan pola yang diinginkan  - Extended Expression (alias for: 'grep -E')
 
 *example.txt*
+
 ```bash
 Lorem ipsum
 dolor sit amet,
@@ -386,12 +441,14 @@ ipsum dolor sit
 amet.
 ```
 
-*display lines that have either "Lorem" or "dolor" in them.*
+*tampilkan baris yang memiliki "Lorem" or "dolor" di dalamnya.*
+
 ```bash
 egrep '(Lorem|dolor)' example.txt
 or
 grep -E '(Lorem|dolor)' example.txt
 ```
+
 ```bash
 Lorem ipsum
 dolor sit amet,
@@ -402,9 +459,11 @@ ipsum dolor sit
 ```
 
 ### e. `fgrep`
-Print lines matching a pattern - FIXED pattern matching  (alias for: 'grep -F')
+
+Mencetak baris yang cocok dengan pola - FIXED pattern matching  (alias for: 'grep -F')
 
 *example.txt*
+
 ```bash
 Lorem ipsum
 dolor sit amet,
@@ -428,28 +487,34 @@ ipsum dolor sit
 amet.
 ```
 
-*Find the exact string '(Lorem|dolor)' in example.txt*
+*Menemukan string yang tepat '(Lorem|dolor)' in example.txt*
+
 ```bash
 fgrep '(Lorem|dolor)' example.txt
 or
 grep -F '(Lorem|dolor)' example.txt
 ```
+
 ```bash
 foo (Lorem|dolor)
 ```
 
 ### f. `fmt`
-Simple optimal text formatter
+
+Format teks dengan simpel
 
 *example: example.txt (1 line)*
+
 ```bash
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 ```
 
-*output the lines of example.txt to 20 character width*
+*keluaran example.txt hingga 20 baris*
+
 ```bash
 cat example.txt | fmt -w 20
 ```
+
 ```bash
 Lorem ipsum
 dolor sit amet,
@@ -475,25 +540,32 @@ amet.
 ### g. `grep`
 Looks for text inside files. You can use grep to search for lines of text that match one or many regular expressions, and outputs only the matching lines.
 ```bash
-grep pattern filename
+grep pola namafile
 ```
-Example:
+
+Contoh:
+
 ```bash
 $ grep admin /etc/passwd
 _kadmin_admin:*:218:-2:Kerberos Admin Service:/var/empty:/usr/bin/false
 _kadmin_changepw:*:219:-2:Kerberos Change Password Service:/var/empty:/usr/bin/false
 _krb_kadmin:*:231:-2:Open Directory Kerberos Admin Service:/var/empty:/usr/bin/false
 ```
-You can also force grep to ignore word case by using `-i` option. `-r` can be used to search all files under the specified directory, for example:
+
+Anda juga dapat memaksa grep untuk mengabaikan huruf besar/kecil dengan menggunakan opsi `-i`. `-r` dapat digunakan untuk mencari semua file didalam direktori tertentu, contohnya:
+
 ```bash
-$ grep -r admin /etc/
+grep -r admin /etc/
 ```
-And `-w` to search for words only. For more detail on `grep`, check following [link](https://www.cyberciti.biz/faq/grep-in-bash).
+
+Dan `-w` untuk mencari kata saja. Untuk detail lebih lanjut tentang `grep`, silahkan kunjungi [link] berikut (https://www.cyberciti.biz/faq/grep-in-bash).
 
 ### h. `nl`
-Number lines of files
+
+Menghitung jumlah baris dari sebuah file teks
 
 *example.txt*
+
 ```bash
 Lorem ipsum
 dolor sit amet,
@@ -516,10 +588,12 @@ ipsum dolor sit
 amet.
 ```
 
-*show example.txt with line numbers*
+*tampilkan example.txt dengan nomor barisnya*
+
 ```bash
 nl -s". " example.txt
 ```
+
 ```bash
      1. Lorem ipsum
      2. dolor sit amet,
@@ -543,33 +617,41 @@ nl -s". " example.txt
 ```
 
 ### i. `sed`
-Stream editor for filtering and transforming text
+
+Sed atau kepanjangannya `Stream editor` biasas digunakan untuk memfilter dan mengubah teks
 
 *example.txt*
+
 ```bash
 Hello This is a Test 1 2 3 4
 ```
 
-*replace all spaces with hyphens*
+*ganti semua spasi dengan tanda hubung*
+
 ```bash
 sed 's/ /-/g' example.txt
 ```
+
 ```bash
 Hello-This-is-a-Test-1-2-3-4
 ```
 
-*replace all digits with "d"*
+*ganti semua digit/angka dengan "d"*
+
 ```bash
 sed 's/[0-9]/d/g' example.txt
 ```
+
 ```bash
 Hello This is a Test d d d d
 ```
 
 ### j. `sort`
-Sort lines of text files
+
+Mengurutkan baris file teks
 
 *example.txt*
+
 ```bash
 f
 b
@@ -580,10 +662,12 @@ e
 d
 ```
 
-*sort example.txt*
+*mengurutkan example.txt*
+
 ```bash
 sort example.txt
 ```
+
 ```bash
 a
 b
@@ -594,10 +678,12 @@ f
 g
 ```
 
-*randomize a sorted example.txt*
+*mengacak yang sebelumnya sudah disort example.txt*
+
 ```bash
 sort example.txt | sort -R
 ```
+
 ```bash
 b
 f
@@ -609,25 +695,31 @@ e
 ```
 
 ### k. `tr`
-Translate or delete characters
+
+Menerjemahkan atau menghapus karakter.
 
 *example.txt*
+
 ```bash
 Hello World Foo Bar Baz!
 ```
 
-*take all lower case letters and make them upper case*
+*mengambil semua huruf kecil dan menjadikannya huruf kapital*
+
 ```bash
 cat example.txt | tr 'a-z' 'A-Z'
 ```
+
 ```bash
 HELLO WORLD FOO BAR BAZ!
 ```
 
-*take all spaces and make them into newlines*
+*mengganti semua spasi dengan menjadikannya sebagai baris baru*
+
 ```bash
 cat example.txt | tr ' ' '\n'
 ```
+
 ```bash
 Hello
 World
@@ -637,9 +729,11 @@ Baz!
 ```
 
 ### l. `uniq`
-Report or omit repeated lines
+
+Laporkan atau hilangkan baris yang berulang
 
 *example.txt*
+
 ```bash
 a
 a
@@ -651,10 +745,12 @@ d
 c
 ```
 
-*show only unique lines of example.txt (first you need to sort it, otherwise it won't see the overlap)*
+*tampilkan hanya baris-baris unik dari example.txt (pertama-tama Anda harus mengurutkannya, jika tidak maka tidak akan terlihat tumpang tindih)*
+
 ```bash
 sort example.txt | uniq
 ```
+
 ```bash
 a
 b
@@ -662,10 +758,12 @@ c
 d
 ```
 
-*show the unique items for each line, and tell me how many instances it found*
+*tampilkan item unik untuk setiap baris, dan beri tahu saya berapa banyak contoh yang ditemukan*
+
 ```bash
 sort example.txt | uniq -c
 ```
+
 ```bash
     3 a
     2 b
@@ -678,14 +776,17 @@ Tells you how many lines, words and characters there are in a file.
 ```bash
 wc filename
 ```
-Example:
+
+Contoh:
+
 ```bash
 $ wc demo.txt
 7459   15915  398400 demo.txt
 ```
-Where `7459` is lines, `15915` is words and `398400` is characters.
 
-## 1.3. Directory Operations
+Di mana `7459` adalah jumlah baris, `15915` adalah jumlah kata, dan `398400` adalah jumlah karakter.
+
+## 1.3. Operasi Direktori
 
 <table>
    <tr>
@@ -698,9 +799,11 @@ Where `7459` is lines, `15915` is words and `398400` is characters.
 ### a. `cd`
 Moves you from one directory to other. Running this
 ```bash
-$ cd
+cd
 ```
-moves you to home directory. This command accepts an optional `dirname`, which moves you to that directory.
+
+memindahkan Anda ke direktori home. Perintah ini menerima sebuah `dirname` opsional, yang akan memindahkan Anda ke direktori tersebut.
+
 ```bash
 cd dirname
 ```
@@ -710,7 +813,9 @@ Makes a new directory.
 ```bash
 mkdir dirname
 ```
-You can use this to create multiple directories at once within your current directory.
+
+Anda dapat menggunakan ini untuk membuat beberapa direktori sekaligus di dalam direktori Anda saat ini.
+
 ```bash
 mkdir 1stDirectory 2ndDirectory 3rdDirectory
 ```
@@ -719,8 +824,9 @@ You can also use this to create parent directories at the same time with the -p 
 mkdir -p /samples/bash/projects/project1
 mkdir --parents /samples/bash/projects/project1
 ```
-Both commands above will do the same thing.
-If any of these directories did no already exist, they would be created as well.
+
+Kedua perintah di atas akan melakukan hal yang sama.
+Jika salah satu direktori ini belum ada, maka direktori tersebut akan dibuat juga.
 
 ### c. `pwd`
 Tells you which directory you currently are in.
@@ -728,7 +834,7 @@ Tells you which directory you currently are in.
 pwd
 ```
 
-## 1.4. SSH, System Info & Network Operations
+## 1.4. SSH, Informasi Sistem & Operasi Jaringan
 
 <table>
    <tr>
@@ -766,16 +872,20 @@ pwd
 </table>
 
 ### a. `bg`
-Lists stopped or background jobs; resume a stopped job in the background.
+
+Melihat daftar pekerjaan (jobs) yang dihentikan atau proses yang berjalan dilatar belakang (background); melanjutkan pekerjaan yang dihentikan di latar belakang.
 
 ### b. `cal`
-Shows the month's calendar.
+
+Menampilkan kalender dalam format bulan.
 
 ### c. `date`
-Shows the current date and time.
+
+Menampilkan tanggal dan waktu saat ini.
 
 ### d. `df`
-Shows disk usage.
+
+Menunjukkan penggunaan disk.
 
 ### e. `dig`
 Gets DNS information for domain.
@@ -784,7 +894,9 @@ dig domain
 ```
 
 ### f. `du`
-Shows the disk usage of files or directories. For more information on this command check this [link](http://www.linfo.org/du.html)
+
+Menunjukkan penggunaan disk dari file atau direktori. Untuk informasi lebih lanjut mengenai perintah ini, lihat [link] ini (http://www.linfo.org/du.html).
+
 ```bash
 du [option] [filename|directory]
 ```
@@ -799,15 +911,18 @@ du -sh pictures
 ```
 
 ### g. `fg`
-Brings the most recent job in the foreground.
+
+Menampilkan pekerjaan terbaru di latar depan (foreground).
 
 ### h. `finger`
 Displays information about user.
 ```bash
 finger username
 ```
+
 ### i. `jobs`
-Lists the jobs running in the background, giving the job number.
+
+Mencantumkan pekerjaan yang berjalan di latar belakang, dengan memberikan penomoran pada pekerjaan itu.
 
 ### j. `last`
 Lists your last logins of specified user.
@@ -822,7 +937,8 @@ man command
 ```
 
 ### l. `passwd`
-Allows the current logged user to change their password.
+
+Memungkinkan pengguna yang masuk saat ini untuk mengubah kata sandi mereka (password).
 
 ### m. `ping`
 Pings host and outputs results.
@@ -847,13 +963,17 @@ quota -v
 ```
 
 ### p. `scp`
-Transfer files between a local host and a remote host or between two remote hosts.
 
-*copy from local host to remote host*
+Mentransfer file antara host lokal dan host jarak jauh atau antara dua host jarak jauh (remote host).
+
+*menyalin dari host lokal ke host jarak jauh (remote host)*
+
 ```bash
 scp source_file user@host:directory/target_file
 ```
-*copy from remote host to local host*
+
+*menyalin dari host jarak jauh ke host lokal*
+
 ```bash
 scp user@host:directory/source_file target_file
 scp -r user@host:directory/source_folder target_folder
@@ -874,7 +994,8 @@ ssh -p port user@host
 ```
 
 ### r. `top`
-Displays your currently active processes.
+
+Menampilkan proses Anda yang sedang aktif.
 
 ### s. `uname`
 Shows kernel information.
@@ -883,10 +1004,12 @@ uname -a
 ```
 
 ### t. `uptime`
-Shows current uptime.
+
+Menunjukkan waktu aktif saat ini.
 
 ### u. `w`
-Displays who is online.
+
+Menampilkan siapa yang sedang online.
 
 ### v. `wget`
 Downloads file.
@@ -895,7 +1018,8 @@ wget file
 ```
 
 ### w. `whoami`
-Return current logged in username.
+
+Menampilkan nama pengguna yang kita pakai saat ini.
 
 ### x. `whois`
 Gets whois information for domain.
@@ -904,21 +1028,26 @@ whois domain
 ```
 
 ### y. `rsync`
-Does the same job as `scp` command, but transfers only changed files. Useful when transferring the same folder to/from server multiple times.
+
+Melakukan pekerjaan yang sama persis dengan perintah `scp`, tetapi hanya mentransfer file yang diubah. Berguna saat mentransfer folder yang sama ke/dari server beberapa kali.
+
 ```bash
 rsync source_folder user@host:target_folder
 rsync user@host:target_folder target_folder
 ```
 
 ### z. `curl`
-Curl is a command-line tool for requesting or sending data using URL syntax. Usefull on systems where you only have terminal available for making various requests.
+
+Curl adalah alat bantu untuk meminta atau mengirim data menggunakan sintaks URL. Berguna pada sistem di mana Anda hanya memiliki terminal yang tersedia untuk membuat berbagai permintaan.
+
 ```bash
 curl url
 ```
+
 Use  `-X` or `--request` to specify which method you would like invoke (GET, POST, DELETE, ...).
 Use `-d <data>` or `--data <data>` to POST data on given URL.
 
-## 1.5. Process Monitoring Operations
+## 1.5. Operasi Pemantauan Proses
 
 <table>
    <tr>
@@ -938,17 +1067,21 @@ kill PID
 ### b. `killall`
 Kill all processes with the name.
 ```bash
-killall processname
+killall namaproses
 ```
 
 ### c. &
-The `&` symbol instructs the command to run as a background process in a subshell.
+
+Simbol `&` menginstruksikan perintah untuk dijalankan sebagai proses latar belakang (background) dalam subshell.
+
 ```bash
 command &
 ```
 
 ### d. `nohup`
-nohup stands for "No Hang Up". This allows to run command/process or shell script that can continue running in the background after you log out from a shell.
+
+nohup adalah singkatan dari "No Hang Up". Ini memungkinkan untuk menjalankan perintah/proses atau skrip shell yang dapat terus berjalan di latar belakang setelah Anda keluar dari shell.
+
 ```bash
 nohup command
 ```
@@ -957,34 +1090,38 @@ Combine it with `&` to create background processes
 nohup command &
 ```
 
-# 2. Basic Shell Programming
+# 2. Dasar-Dasar Pemrogramana Shell
 
-
-The first line that you will write in bash script files is called `shebang`. This line in any script determines the script's ability to be executed like a standalone executable without typing sh, bash, python, php etc beforehand in the terminal.
+Baris pertama yang akan Anda tulis dalam file skrip bash disebut `shebang`. Baris ini dalam skrip apa pun menentukan kemampuan skrip untuk dieksekusi seperti eksekusi mandiri tanpa mengetikkan sh, bash, python, php, dan lain-lain terlebih dahulu di terminal.
 
 ```bash
 #!/usr/bin/env bash
 ```
 
-## 2.1. Variables
+## 2.1. Variabel
 
-Creating variables in bash is similar to other languages. There are no data types. A variable in bash can contain a number, a character, a string of characters, etc. You have no need to declare a variable, just assigning a value to its reference will create it.
+Membuat variabel dalam bash mirip dengan bahasa lain. Tidak ada tipe data. Variabel dalam bash dapat berisi angka, karakter, string karakter, dll. Anda tidak perlu mendeklarasikan variabel, cukup dengan memberikan nilai pada referensinya saja sudah cukup untuk membuatnya.
 
-Example:
+Contoh:
+
 ```bash
 str="hello world"
 ```
 
-The above line creates a variable `str` and assigns "hello world" to it. The value of variable is retrieved by putting the `$` in the beginning of variable name.
+Baris di atas membuat variabel `str` dan menetapkan "hello world" ke variabel tersebut. Nilai variabel diambil dengan meletakkan `$` di awal nama variabel.
 
-Example:
+Contoh:
+
 ```bash
 echo $str   # hello world
 ```
-## 2.2. Array
-Like other languages bash has also arrays. An array is a variable containing multiple values. There's no maximum limit on the size of array. Arrays in bash are zero based. The first element is indexed with element 0. There are several ways for creating arrays in bash which are given below.
 
-Examples:
+## 2.2. Array
+
+Seperti bahasa lain, bash juga memiliki array. Sebuah array adalah sebuah variabel yang berisi banyak nilai. Tidak ada batasan maksimum pada ukuran array. Array dalam bash berbasis nol. Elemen pertama diindeks dengan elemen 0. Ada beberapa cara untuk membuat array di bash yang diberikan di bawah ini.
+
+Contoh:
+
 ```bash
 array[0]=val
 array[1]=val
@@ -992,19 +1129,20 @@ array[2]=val
 array=([2]=val [0]=val [1]=val)
 array=(val val val)
 ```
-To display a value at specific index use following syntax:
+
+Untuk menampilkan nilai pada indeks tertentu, gunakan sintaks berikut:
 
 ```bash
-${array[i]}     # where i is the index
+${array[i]}     # dimana i adalah indeksnya
 ```
 
-If no index is supplied, array element 0 is assumed. To find out how many values there are in the array use the following syntax:
+Jika tidak ada indeks yang diberikan, elemen larik 0 diasumsikan. Untuk mengetahui berapa banyak nilai yang ada dalam larik, gunakan sintaks berikut:
 
 ```bash
 ${#array[@]}
 ```
 
-Bash has also support for the ternary conditions. Check some examples below.
+Bash juga mendukung kondisi terner. Lihat beberapa contoh di bawah ini.
 
 ```bash
 ${varname:-word}    # if varname exists and isn't null, return its value; otherwise return word
@@ -1013,67 +1151,70 @@ ${varname:+word}    # if varname exists and isn't null, return word; otherwise r
 ${varname:offset:length}    # performs substring expansion. It returns the substring of $varname starting at offset and up to length characters
 ```
 
-## 2.3 String Substitution
+## 2.3 Substitusi String
 
-Check some of the syntax on how to manipulate strings
-
-```bash
-${variable#pattern}         # if the pattern matches the beginning of the variable's value, delete the shortest part that matches and return the rest
-${variable##pattern}        # if the pattern matches the beginning of the variable's value, delete the longest part that matches and return the rest
-${variable%pattern}         # if the pattern matches the end of the variable's value, delete the shortest part that matches and return the rest
-${variable%%pattern}        # if the pattern matches the end of the variable's value, delete the longest part that matches and return the rest
-${variable/pattern/string}  # the longest match to pattern in variable is replaced by string. Only the first match is replaced
-${variable//pattern/string} # the longest match to pattern in variable is replaced by string. All matches are replaced
-${#varname}     # returns the length of the value of the variable as a character string
-```
-
-## 2.4. Other String Tricks
-
-Bash has multiple shorthand tricks for doing various things to strings.
+Periksa beberapa sintaks tentang cara memanipulasi string
 
 ```bash
-${variable,,}    #this converts every letter in the variable to lowercase
-${variable^^}    #this converts every letter in the variable to uppercase
-
-${variable:2:8}  #this returns a substring of a string, starting at the character at the 2 index(strings start at index 0, so this is the 3rd character),
-                 #the substring will be 8 characters long, so this would return a string made of the 3rd to the 11th characters.
+${variabel#pola}         # jika pola cocok dengan awal nilai variabel, hapus bagian terpendek yang cocok dan kembalikan sisanya
+${variabel#pola}        # jika pola cocok dengan awal nilai variabel, hapus bagian terpanjang yang cocok dan kembalikan sisanya
+${variabel%pola}         # jika pola cocok dengan akhir nilai variabel, hapus bagian terpendek yang cocok dan kembalikan sisanya
+${variabel%%pola}        # jika pola cocok dengan akhir nilai variabel, hapus bagian terpanjang yang cocok dan kembalikan sisanya
+${variabel/pola/string}  # kecocokan terpanjang dengan pola dalam variabel diganti dengan string. Hanya kecocokan pertama yang diganti
+${variabel//pola/string} # kecocokan terpanjang dengan pola dalam variabel diganti dengan string. Semua kecocokan diganti
+${#varname}     # mengembalikan panjang nilai variabel sebagai string karakter
 ```
 
-Here are some handy pattern matching tricks
+## 2.4. Trik String Lainnya
+
+Bash memiliki beberapa trik singkatan untuk melakukan berbagai hal pada string.
+
 ```bash
-if [[ "$variable" == *subString* ]]  #this returns true if the provided substring is in the variable
-if [[ "$variable" != *subString* ]]  #this returns true if the provided substring is not in the variable
-if [[ "$variable" == subString* ]]   #this returns true if the variable starts with the given subString
-if [[ "$variable" == *subString ]]   #this returns true if the variable ends with the given subString
+${variabel ,,}    #ini mengubah setiap huruf dalam variabel menjadi huruf kecil
+${variabel^^}    #ini mengubah setiap huruf dalam variabel menjadi huruf besar
+
+${variabel:2:8}  #ini mengembalikan substring dari sebuah string, dimulai dari karakter pada indeks ke-2 (string dimulai dari indeks 0, jadi ini adalah karakter ke-3),
+                 #Substring akan memiliki panjang 8 karakter, jadi ini akan mengembalikan string yang terdiri dari karakter ke-3 hingga ke-11.
 ```
 
+Berikut ini beberapa trik pencocokan pola yang praktis
 
-The above can be shortened using a case statement and the IN keyword
+```bash
+if [ [ "$variabel" == *subString* ]]  #ini mengembalikan nilai true jika substring yang diberikan ada di dalam variabel
+if [[ "$variabel" != *subString* ]]  #ini mengembalikan nilai true jika substring yang diberikan tidak ada di dalam variabel
+if [[ "$variabel" == subString* ]]   #ini mengembalikan nilai true jika variabel dimulai dengan subString yang diberikan
+if [[ "$variabel" == *subString ]]   #ini mengembalikan nilai true jika variabel diakhiri dengan subString yang diberikan
+```
+
+Hal di atas dapat dipersingkat dengan menggunakan pernyataan kasus dan kata kunci IN
+
 ```bash
 case "$var" in
-	begin*)
-		#variable begins with "begin"
-	;;
-	*subString*)
-		#subString is in variable
-	;;
+ begin*)
+  #variabel dimulai dengan "begin"
+ ;;
+ *subString*)
+  #subString ada di dalam variabel
+ ;;
 
-	*otherSubString*)
-		#otherSubString is in variable
-	;;
+ * subSubString lainnya*)
+  #subString lainnya ada di dalam variabel
+ ;;
 esac
 ```
 
-## 2.5. Functions
-As in almost any programming language, you can use functions to group pieces of code in a more logical way or practice the divine art of recursion. Declaring a function is just a matter of writing function my_func { my_code }. Calling a function is just like calling another program, you just write its name.
+## 2.5. Fungsi
+
+Seperti pada hampir semua bahasa pemrograman, Anda dapat menggunakan fungsi untuk mengelompokkan potongan-potongan kode dengan cara yang lebih logis atau mempraktikkan seni rekursi. Mendeklarasikan sebuah fungsi hanyalah masalah menulis fungsi my_func { my_code }. Memanggil sebuah fungsi sama seperti memanggil program lain, Anda cukup menuliskan namanya.
 
 ```bash
-function name() {
-    shell commands
+nama fungsi() {
+    perintah shell
 }
 ```
 
-Example:
+Contoh:
+
 ```bash
 #!/bin/bash
 function hello {
@@ -1087,175 +1228,184 @@ function say {
 say "hello world!"
 ```
 
-When you run the above example the `hello` function will output "world!". The above two functions `hello` and `say` are identical. The main difference is function `say`. This function, prints the first argument it receives. Arguments, within functions, are treated in the same manner as arguments given to the script.
+Ketika Anda menjalankan contoh di atas, fungsi `hello` akan mengeluarkan output "world!". Kedua fungsi di atas, `hello` dan `say`, adalah sama. Perbedaan utamanya adalah fungsi `say`. Fungsi ini, mencetak argumen pertama yang diterimanya. Argumen, di dalam fungsi, diperlakukan dengan cara yang sama seperti argumen yang diberikan ke skrip.
 
-## 2.6. Conditionals
+## 2.6. Kondisi
 
-The conditional statement in bash is similar to other programming languages. Conditions have many form like the most basic form is `if` expression `then` statement where statement is only executed if expression is true.
+Pernyataan kondisional dalam bash mirip dengan bahasa pemrograman lainnya. Kondisi memiliki banyak bentuk seperti bentuk yang paling dasar adalah pernyataan `if` ekspresi `then` di mana pernyataan hanya dieksekusi jika ekspresi bernilai true.
 
 ```bash
-if [ expression ]; then
-    will execute only if expression is true
+if [ ekspresi]; then
+    akan dieksekusi hanya jika ekspresi bernilai benar
 else
-    will execute if expression is false
+    akan dieksekusi jika ekspresi bernilai salah
 fi
 ```
 
-Sometime if conditions becoming confusing so you can write the same condition using the `case statements`.
+Terkadang jika kondisi menjadi membingungkan, Anda dapat menulis kondisi yang sama menggunakan `pernyataan kasus`.
 
 ```bash
 case expression in
-    pattern1 )
+    pola1 )
         statements ;;
-    pattern2 )
+    pola2 )
         statements ;;
     ...
 esac
 ```
 
-Expression Examples:
+COntoh penggunaan ekspresi:
 
 ```bash
-statement1 && statement2  # both statements are true
-statement1 || statement2  # at least one of the statements is true
+pernyataan1 && pernyataan2 # kedua pernyataan tersebut benar
+pernyataan1 || pernyataan2 # setidaknya salah satu dari pernyataan bernilai benar
 
-str1=str2       # str1 matches str2
-str1!=str2      # str1 does not match str2
-str1<str2       # str1 is less than str2
-str1>str2       # str1 is greater than str2
--n str1         # str1 is not null (has length greater than 0)
--z str1         # str1 is null (has length 0)
+str1=str2 # str1 cocok dengan str2
+str1!=str2 # str1 tidak cocok dengan str2
+str1<str2 # str1 kurang dari str2
+str1>str2 # str1 lebih besar dari str2
+-n str1 # str1 tidak nol (memiliki panjang lebih besar dari 0)
+-z str1 # str1 adalah null (memiliki panjang 0)
 
--a file         # file exists
--d file         # file exists and is a directory
--e file         # file exists; same -a
--f file         # file exists and is a regular file (i.e., not a directory or other special type of file)
--r file         # you have read permission
--s file         # file exists and is not empty
--w file         # you have write permission
--x file         # you have execute permission on file, or directory search permission if it is a directory
--N file         # file was modified since it was last read
--O file         # you own file
--G file         # file's group ID matches yours (or one of yours, if you are in multiple groups)
+-a file # file ada
+-d file # file ada dan merupakan sebuah direktori
+-e file # file ada; sama dengan -a
+-f file # file ada dan merupakan file biasa (yaitu, bukan direktori atau jenis file khusus lainnya)
+-r file # Anda memiliki izin baca
+-s berkas # berkas ada dan tidak kosong
+-w file # Anda memiliki izin menulis
+-x berkas # Anda memiliki izin eksekusi pada berkas, atau izin pencarian direktori jika berkas tersebut adalah sebuah direktori
+-N file # file telah dimodifikasi sejak terakhir kali dibaca
+-O file # file Anda sendiri
+-G file # ID grup file cocok dengan ID grup Anda (atau salah satu ID grup Anda, jika Anda berada dalam beberapa grup)
 
-file1 -nt file2     # file1 is newer than file2
-file1 -ot file2     # file1 is older than file2
+file1 -nt file2 # file1 lebih baru dari file2
+file1 -ot file2 # file1 lebih tua dari file2
 
--lt     # less than
--le     # less than or equal
--eq     # equal
--ge     # greater than or equal
--gt     # greater than
--ne     # not equal
+-lt # kurang dari
+-le # kurang dari atau sama dengan
+-eq # sama dengan
+-ge # lebih besar dari atau sama dengan
+-gt # lebih besar dari
+-ne # tidak sama
 ```
 
-## 2.7. Loops
+## 2.7. Perulangan
 
-There are three types of loops in bash. `for`, `while` and `until`.
+Ada tiga jenis perulangan dalam bash. `for`, `while` dan `until`.
 
-Different `for` Syntax:
+`for` Sintaks:
+
 ```bash
 for x := 1 to 10 do
-begin
-  statements
+mulai
+  pernyataan
 end
 
-for name [in list]
+for nama [in list]
 do
-  statements that can use $name
+  pernyataan yang dapat menggunakan $nama
 done
 
-for (( initialisation ; ending condition ; update ))
+for (( inisialisasi ; kondisi akhir ; update ))
 do
-  statements...
+  pernyataan-pernyataan
 done
 ```
 
-`while` Syntax:
+`while` Sintaks:
+
 ```bash
-while condition; do
-  statements
+while kondisi; do
+  pernyataan
 done
 ```
 
-`until` Syntax:
+`until` Sintaks:
+
 ```bash
-until condition; do
-  statements
+until kondisi; do
+    pernyataan
 done
 ```
 
-# 3. Tricks
+# 3. Trik
 
-## Set an alias
+## Tetapkan Nama Alias
 
-Run `nano ~/.bash_profile` and add the following line:
+Jalankan `nano ~/.bash_profile` lalu tambahkan baris berikut:
 
 ```bash
 alias dockerlogin='ssh www-data@adnan.local -p2222'  # add your alias in .bash_profile
 ```
 
-## To quickly go to a specific directory
+## Untuk membuka direktori tertentu dengan cepat
 
-Run `nano ~/.bashrc` and add the following line:
+Jalankan `nano ~/.bashrc` dan tambahkan baris berikut:
 
 ```bash
 export hotellogs="/workspace/hotel-api/storage/logs"
 ```
 
-Now you can use the saved path:
+Sekarang Anda dapat menggunakan jalur yang disimpan di alias:
 
 ```bash
 source ~/.bashrc
 cd $hotellogs
 ```
 
-## Re-execute the previous command
+## Jalankan kembali perintah sebelumnya
 
 This goes back to the days before you could rely on keyboards to have an "up" arrow key, but can still be useful.
 To run the last command in your history
 ```bash
 !!
 ```
-A common error is to forget to use `sudo` to prefix a command requiring privileged execution. Instead of typing the whole command again, you can:
+
+Kesalahan yang sering terjadi adalah lupa menggunakan `sudo` untuk mengawali perintah yang membutuhkan eksekusi khusus. Daripada mengetikkan seluruh perintah lagi, Anda dapat:
+
 ```bash
 sudo !!
 ```
-This would change a `mkdir somedir` into `sudo mkdir somedir`.
 
-## Exit traps
+Ini akan mengubah `mkdir somedir` menjadi `sudo mkdir somedir`.
 
-Make your bash scripts more robust by reliably performing cleanup.
+## Keluar dari perangkap
+
+Jadikan skrip bash Anda lebih kuat dengan melakukan pembersihan secara andal.
 
 ```bash
 function finish {
-  # your cleanup here. e.g. kill any forked processes
+  # pembersihan Anda di sini. misal, bunuh semua proses bercabang
   jobs -p | xargs kill
 }
 trap finish EXIT
 ```
 
-## Saving your environment variables
+## Menyimpan Environment Variabel Anda
 
-When you do `export FOO = BAR`, your variable is only exported in this current shell and all its children, to persist in the future you can simply append in your `~/.bash_profile` file the command to export your variable
+Ketika Anda melakukan `export FOO = BAR`, variabel Anda hanya diekspor dalam shell saat ini dan semua anak-anaknya, untuk mempertahankannya di masa depan, Anda cukup menambahkan perintah untuk mengekspor variabel Anda dalam berkas `~/.bash_profile`.
+
 ```bash
 echo export FOO=BAR >> ~/.bash_profile
 ```
 
-## Accessing your scripts
+## Mengakses skrip Anda
 
-You can easily access your scripts by creating a bin folder in your home with `mkdir ~/bin`, now all the scripts you put in this folder you can access in any directory.
+Anda dapat dengan mudah mengakses skrip Anda dengan membuat folder bin di /home Anda dengan `mkdir ~/bin`, sekarang semua skrip yang Anda taruh di folder ini dapat Anda akses di direktori mana pun.
 
-If you can not access, try append the code below in your `~/.bash_profile` file and after do `source ~/.bash_profile`.
+Jika Anda tidak dapat mengakses, coba tambahkan kode di bawah ini pada berkas `~/.bash_profile` Anda dan setelah melakukan `source ~/.bash_profile`.
+
 ```bash
-# set PATH so it includes user's private bin if it exists
+# setel PATH agar menyertakan tempat sampah pribadi pengguna jika ada
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 ```
 
 # 4. Debugging
-You can easily debug the bash script by passing different options to `bash` command. For example `-n` will not run commands and check for syntax errors only. `-v` echo commands before running them. `-x` echo commands after command-line processing.
+
+Anda dapat dengan mudah men-debug skrip bash dengan memberikan opsi yang berbeda pada perintah `bash`. Sebagai contoh `-n` tidak akan menjalankan perintah dan hanya memeriksa kesalahan sintaks. `-v` menggemakan perintah sebelum menjalankannya. Perintah echo `-x` setelah pemrosesan baris perintah.
 
 ```bash
 bash -n scriptname
@@ -1264,13 +1414,14 @@ bash -x scriptname
 ```
 
 # 5. Multi-threading
-You can easily multi-threading your jobs using `&`. All those jobs will then run in the background simultaneously and you can see the processes below are running using `jobs`.
+
+Anda dapat dengan mudah melakukan multi-threading pekerjaan Anda dengan menggunakan `&`. Semua pekerjaan tersebut akan berjalan di latar belakang secara bersamaan dan Anda dapat melihat proses-proses di bawah ini berjalan menggunakan `jobs`.
 
 ```bash
 sleep 15 & sleep 5 &
 ```
 
-The optional `wait` command will then wait for all the jobs to finish.
+Perintah opsional `wait` kemudian akan menunggu sampai semua pekerjaan selesai.
 
 ```bash
 sleep 10 & sleep 5 &
@@ -1279,17 +1430,18 @@ wait
 
 ## Contribution
 
-- Report issues [How to](https://help.github.com/articles/creating-an-issue/)
-- Open pull request with improvements [How to](https://help.github.com/articles/about-pull-requests/)
-- Spread the word
+* Report issues [How to](https://help.github.com/articles/creating-an-issue/)
+* Open pull request with improvements [How to](https://help.github.com/articles/about-pull-requests/)
+* Spread the word
 
 ## Translation
+
 - [Chinese | 简体中文](https://github.com/vuuihc/bash-guide)
-- [Turkish | Türkçe](https://github.com/omergulen/bash-guide)
-- [Japanese | 日本語](https://github.com/itooww/bash-guide)
-- [Russian | Русский](https://github.com/navinweb/bash-guide)
-- [Vietnamese | Tiếng Việt](https://github.com/nguyenvanhieuvn/hoc-bash)
-- [Spanish | Español](https://github.com/mariotristan/bash-guide)
+* [Turkish | Türkçe](https://github.com/omergulen/bash-guide)
+* [Japanese | 日本語](https://github.com/itooww/bash-guide)
+* [Russian | Русский](https://github.com/navinweb/bash-guide)
+* [Vietnamese | Tiếng Việt](https://github.com/nguyenvanhieuvn/hoc-bash)
+* [Spanish | Español](https://github.com/mariotristan/bash-guide)
 
 ## License
 
