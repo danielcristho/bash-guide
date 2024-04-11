@@ -2,23 +2,39 @@
   <img src="https://cloud.githubusercontent.com/assets/2059754/24601246/753a7f36-1858-11e7-9d6b-7a0e64fb27f7.png" alt="bash logo"/>
 </p>
 
-## Table of Contents
-  1. [Basic Operations](#1-basic-operations)
-    1.1. [File Operations](#11-file-operations)
-    1.2. [Text Operations](#12-text-operations)
-    1.3. [Directory Operations](#13-directory-operations)
-    1.4. [SSH, System Info & Network Operations](#14-ssh-system-info--network-operations)
-    1.5. [Process Monitoring Operations](#15-process-monitoring-operations)
-  2. [Basic Shell Programming](#2-basic-shell-programming)
-    2.1. [Variables](#21-variables)
+## Daftar Isi
+## Daftar Isi
+1. [Operasi Dasar](#1-operasi-dasar)
+
+   1.1. [Operasi File](#11-operasi-file)
+
+   1.2. [Operasi Teks](#12-operasi-teks)
+
+    1.3. [Operasi Direktori](#13-operasi-direktori)
+
+    1.4. [SSH, Informasi Sistem & Operasi Jaringan](#14-ssh-informasi-sistem--operasi-jaringan)
+
+    1.5. [Operasi Monitoring Proses](#15-operasi-monitoring-proses)
+
+2. [Basic Shell Programming](#2-basic-shell-programming)
+
+    2.1. [Variabel](#21-variabel)
+
     2.2. [Array](#22-array)
-    2.3. [String Substitution](#23-string-substitution)
-    2.4. [Other String Tricks](#24-other-string-tricks)
-    2.5. [Functions](#25-functions)
-    2.6. [Conditionals](#26-conditionals)
-    2.7. [Loops](#27-loops)
-  3. [Tricks](#3-tricks)
-  4. [Debugging](#4-debugging)
+
+    2.3. [Substitusi String](#23-substitusi-string)
+
+    2.4. [Triks String Lainnya](#24-triks-string-lainnya)
+
+    2.5. [Fungsi](#25-fungsi)
+
+    2.6. [Pernyataan Kondisional](#26-pernyataan-kondisional)
+
+    2.7. [Pengulangan](#27-pengulangan)
+
+3. [Trik](#3-trik)
+4. [Debugging](#4-debugging)
+5. [Multi-threading](#5-multi-threading)
 
 # 1. Operasi Dasar
 
